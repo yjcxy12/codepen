@@ -1,0 +1,68 @@
+#main-display {
+  height: 200px;
+  width: 100%; }
+  #main-display .my-btn {
+    border: none;
+    background-color: #3498db;
+    border-radius: 4px;
+    box-shadow: 0px 1px 1px #196090;
+    display: block;
+    padding: 1em 4em;
+    margin: 1em;
+    position: relative;
+    color: white;
+    cursor: pointer;
+    text-size: 2em;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    user-select: none;
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); }
+    #main-display .my-btn:hover {
+      background-color: #5faee3;
+      box-shadow: 0px 1px 1px #217dbb;
+      -moz-transition: all 0.5s 0s linear;
+      -o-transition: all 0.5s 0s linear;
+      -ms-transition: all 0.5s 0s linear;
+      -webkit-transition: all 0.5s 0s linear;
+      transition: all 0.5s 0s linear; }
+    #main-display .my-btn:focus {
+      border: none;
+      outline: none; }
+    #main-display .my-btn:nth-of-type(2) {
+      background-color: #2ecc71;
+      box-shadow: 0px 1px 1px #1b7943; }
+      #main-display .my-btn:nth-of-type(2):hover {
+        background-color: #54d98c;
+        box-shadow: 0px 1px 1px #25a25a; }
+    #main-display .my-btn:nth-of-type(3) {
+      background-color: #f1c40f;
+      box-shadow: 0px 1px 1px #927608; }
+      #main-display .my-btn:nth-of-type(3):hover {
+        background-color: #f4d03f;
+        box-shadow: 0px 1px 1px #c29d0b; }
+    #main-display .my-btn:nth-of-type(4) {
+      background-color: #e74c3c;
+      box-shadow: 0px 1px 1px #a82315; }
+      #main-display .my-btn:nth-of-type(4):hover {
+        background-color: #ed7669;
+        box-shadow: 0px 1px 1px #d62c1a; }
+
+@keyframes wave {
+  from {
+    background-color: rgba(0, 0, 0, 0.3);
+    transform: scale(0); }
+  to {
+    transform: scale(2);
+    opacity: 0; } }
+
+.wave {
+  position: absolute;
+  border-radius: 100%; }
+
+.anim {
+  animation: wave 0.75s ease-out; }

@@ -1,0 +1,16 @@
+{
+  "name": "vdomobj",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yjcxy12 <yjcxy12@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.1",
+    "gulp-watch": "^4.2.4"
+  }
+}
