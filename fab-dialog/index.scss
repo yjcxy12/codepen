@@ -1,0 +1,70 @@
+$fab-color: #e74c3c;
+*{
+  padding: 0; 
+  margin: 0;
+}
+
+#main-display {
+  margin: 200px auto;
+}
+
+.fab {
+  border: none;
+  outline: none;
+  background-color: $fab-color;
+  border-radius: 100%;
+  padding: 25px;
+  position: absolute;
+  left: 80%;
+  top: 80%;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 1px grey;
+  box-sizing: border-box;
+  width: 0;
+  height: 0;
+    
+  .fa {
+    transform: translate(-50%, -50%);
+  }
+  
+  &.is-expanding {
+    animation: expand 0.5s ease-in;
+  }
+
+  &.expanded {
+    width: 80%;
+    height: 60%;
+    border-radius: 3px;
+    background-color: #3498db;
+    left: 10%;
+    top: 20%;
+    cursor: auto;
+  }
+  
+  &.is-closing {
+    animation: expand 0.5s ease-out reverse;
+  }
+}
+
+@keyframes expand{
+  33% {
+    width: 0;
+    height: 0;
+    left: 70%;
+    top: 70%;
+  }
+  100% {
+    width: 80%;
+    height: 60%;
+    border-radius: 3px;
+    background-color: #3498db;
+    left: 10%;
+    top: 20%;
+  }
+}
+
+.expand-close {
+  cursor: pointer;
+  float: right;
+}
