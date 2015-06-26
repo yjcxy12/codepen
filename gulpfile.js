@@ -4,24 +4,21 @@ var gulp = require('gulp');
 var watch = require('gulp-watch');
 var sass = require('gulp-sass');
 
-var dirs = ['fab-dialog', 'wave'];
+var dirs = ['fab-dialog', 'wave', 'planner'];
 
 gulp.task('sass', function () {
-	gulp.src(dirs.map(function (dir) {
-		return dir + '/*.scss';
-	}))
-		.pipe(sass().on('error', sass.logError))
-		.pipe(gulp.dest('./fab-dialog'));
+	dirs.map(function (dir) {
+		gulp.src(dir + '/*.scss')
+			.pipe(sass().on('error', sass.logError))
+			.pipe(gulp.dest('./' + dir));
+	});
 });
 
 gulp.task('watch', function() {
-	var watchDir = [];
-	dirs.map(function (dir) {
-		watchDir.push(dir + '/*.js');
-		watchDir.push(dir + '/*.scss');
-		watchDir.push(dir + '/*.html');
+	var watchDir = dirs.map(function (dir) {
+		return dir + '/*.scss';
 	});
-	watch(['wave/*.js', 'wave/*.scss', 'wave/*.html'], function() {
+	watch(watchDir, function() {
 		gulp.run(['sass']);
 	});
 });

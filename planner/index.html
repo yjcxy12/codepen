@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <base href="/">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="planner/index.css">
+
+  </head>
+  <body>
+    <div class="main" ng-app="planner" ng-controller="PlannerCtrl as vm">
+      <div class="add-plan">
+        <select id="plan-start" ng-model="vm.newPlan.start">
+          <option value="{{hour}}" ng-repeat="hour in vm.hours">{{vm.hourText(hour)}}</option>
+        </select>
+        <select id="plan-finish" ng-model="vm.newPlan.finish">
+          <option value="{{hour}}" ng-repeat="hour in vm.hours">{{vm.hourText(hour)}}</option>
+        </select>
+        <input type="text" id="activity" ng-model="vm.newPlan.activity"/>
+        <button ng-click="vm.addPlan()">Add</button>
+      </div>
+
+
+      <ul class="hours">
+        <li class="time-slot" ng-repeat="hour in vm.hours">
+          <div class="hour">
+            {{vm.hourText(hour)}}
+          </div>
+        </li>
+      </ul>
+      <div class="plan-container">
+        <div class="plan" style="{{vm.getPlanStyle(plan)}}" ng-repeat="plan in vm.plans">
+          <p class="activity">{{plan.activity}}</p>
+          <span class="fa fa-trash" ng-click="vm.removePlan(plan.id)"></span>
+        </div>
+      </div>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
+    <script src="planner/index.js"></script>
+
+  </body>
+</html>

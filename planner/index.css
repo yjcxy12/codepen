@@ -1,0 +1,63 @@
+@import url("http://fonts.googleapis.com/css?family=Sniglet");
+body {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  height: 100%;
+  font: normal 18px Sniglet; }
+
+.main {
+  background-color: #70c270;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  position: relative; }
+
+.hours {
+  display: inline-block;
+  width: 10%;
+  position: relative; }
+
+.time-slot {
+  list-style-type: none;
+  border-bottom: dotted 1px;
+  height: 80px;
+  position: relative;
+  box-sizing: border-box; }
+
+.hour {
+  display: inline-block;
+  font: inherit;
+  color: white;
+  top: 50%;
+  transform: translateY(-50%);
+  position: relative;
+  text-align: center;
+  vertical-align: top; }
+
+.plan-container {
+  display: inline-flex;
+  width: 80%;
+  height: 1920px;
+  position: relative;
+  vertical-align: top;
+  margin: 18px 0; }
+
+.plan {
+  background-color: #4095bf;
+  border-radius: 10px;
+  padding: 0.5em;
+  margin: 0 0.2em;
+  flex: 1 1 auto;
+  position: relative;
+  box-sizing: border-box; }
+  .plan h4 {
+    display: inline-block;
+    font: inherit;
+    color: white; }
+  .plan .fa-trash {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+    color: white; }
