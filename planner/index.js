@@ -38,51 +38,53 @@ angular.module('planner', [])
             var height = (plan.finish - plan.start) * 80;
             return "top:" + (top + 5) + "px;" + 
                 "height:" + (height - 10) + "px;" +
-                "left:" + plan.left * plan.width + "%;" +
-                "width:" + (plan.width - 2) + "%;";
+                "left:" + plan.left * vm.width + "%;" +
+                "width:" + (vm.width - 2) + "%;";
         };
 
         vm.calculateWidth = function () {
-            vm.plans.sort(function (a, b) {
-                if (a.finish - a.start > b.finish - b.start) {
-                    return -1;
+            var columns;
+
+            function iter(hour, col) {
+                var unvisited = vm.plans.filter(function (plan) {
+                    return !plan.visited;
+                });
+
+                if (unvisited.length === 0) {
+                    return col;
                 }
-                else if (a.finish - a.start < b.finish - b.start) {
+                else {
+                    vm.plans.map(function (plan) {
+                        if (plan.visited || plan.start < hour) {
+                            return;
+                        }
+                        plan.left = col;
+                        plan.visited = true;
+                        hour = plan.finish;
+                    });
+
+                    return iter(0, col + 1);
+                }
+            }
+
+            vm.plans.map(function (plan) {
+                plan.visited = false;
+            });
+
+            vm.plans.sort(function (a, b) {
+                if (a.start > b.start) {
                     return 1;
+                }
+                else if (a.start < b.start) {
+                    return -1;
                 }
                 else {
                     return 0;
                 }
             });
 
-            vm.plans.map(function (plan) {
-                var maxLeftPosition = 0;
-                plan.width = 100;
-                vm.hours.map(function (hour) {
-                    if (hour < plan.start || hour >= plan.finish) {
-                        return;
-                    }
-                    
-                    maxLeftPosition = Math.max(maxLeftPosition, vm.leftPositions[hour]);
-                });
-
-                vm.hours.map(function (hour) {
-                    if (hour < plan.start || hour >= plan.finish) {
-                        return;
-                    }
-                    vm.leftPositions[hour] = maxLeftPosition + 1;
-                });
-                plan.left = maxLeftPosition;
-            }, vm);
-
-            angular.forEach(vm.leftPositions, function (leftPosition, hour) {
-                vm.plans.map(function (plan) {
-                    if (hour < plan.start || hour >= plan.finish) {
-                        return;
-                    }
-                    plan.width = Math.min(plan.width, 100/leftPosition);
-                });
-            });
+            columns = iter(0, 0);
+            vm.width = 100 / columns;
         };
 
         vm.init();
