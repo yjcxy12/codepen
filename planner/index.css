@@ -36,7 +36,7 @@ body {
   vertical-align: top; }
 
 .plan-container {
-  display: inline-flex;
+  display: inline-block;
   width: 80%;
   height: 1920px;
   position: relative;
@@ -46,15 +46,15 @@ body {
 .plan {
   background-color: #4095bf;
   border-radius: 10px;
-  padding: 0.5em;
+  display: inline-block;
   margin: 0 0.2em;
-  flex: 1 1 auto;
-  position: relative;
+  position: absolute;
   box-sizing: border-box; }
-  .plan h4 {
+  .plan .activity {
     display: inline-block;
     font: inherit;
-    color: white; }
+    color: white;
+    padding: 0.5em; }
   .plan .fa-trash {
     position: absolute;
     right: 20px;

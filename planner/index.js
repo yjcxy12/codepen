@@ -1,22 +1,31 @@
 angular.module('planner', [])
     .controller('PlannerCtrl', function(Plan, Hour) {
 
-        this.hours = Hour.getHours();
-        this.plans = Plan.getPlans();
+        var vm = {};
 
-        this.addPlan = function() {
-            Plan.addPlan(this.newPlan).then(Plan.getPlans).catch(function(e) {
+        vm.init = function () {
+            vm.leftPositions = {};
+            vm.hours = Hour.getHours();
+            vm.plans = Plan.getPlans();
+            vm.hours.map(function (hour) {
+                vm.leftPositions[hour] = 0;
+            });
+            vm.calculateWidth();
+        };
+
+        vm.addPlan = function() {
+            Plan.addPlan(this.newPlan).then(vm.init).catch(function(e) {
                 alert(e);
             });
         };
 
-        this.removePlan = function(id) {
-            Plan.removePlan(id).then(Plan.getPlans).catch(function(e) {
+        vm.removePlan = function(id) {
+            Plan.removePlan(id).then(vm.init).catch(function(e) {
                 alert(e);
             });
         };
 
-        this.hourText = function(hour) {
+        vm.hourText = function(hour) {
             if (+hour > 9) {
                 return hour + ':00';
             } else if (+hour >= 0) {
@@ -24,12 +33,62 @@ angular.module('planner', [])
             }
         };
 
-        this.getPlanStyle = function (plan) {
+        vm.getPlanStyle = function (plan) {
             var top = plan.start * 80;
             var height = (plan.finish - plan.start) * 80;
-            return "top:" + top + "px;" + 
-                "height:" + height + "px;";
+            return "top:" + (top + 5) + "px;" + 
+                "height:" + (height - 10) + "px;" +
+                "left:" + plan.left * vm.width + "%;" +
+                "width:" + (vm.width - 2) + "%;";
         };
+
+        vm.calculateWidth = function () {
+            var columns;
+
+            function iter(hour, col) {
+                var unvisited = vm.plans.filter(function (plan) {
+                    return !plan.visited;
+                });
+
+                if (unvisited.length === 0) {
+                    return col;
+                }
+                else {
+                    vm.plans.map(function (plan) {
+                        if (plan.visited || plan.start < hour) {
+                            return;
+                        }
+                        plan.left = col;
+                        plan.visited = true;
+                        hour = plan.finish;
+                    });
+
+                    return iter(0, col + 1);
+                }
+            }
+
+            vm.plans.map(function (plan) {
+                plan.visited = false;
+            });
+
+            vm.plans.sort(function (a, b) {
+                if (a.start > b.start) {
+                    return 1;
+                }
+                else if (a.start < b.start) {
+                    return -1;
+                }
+                else {
+                    return 0;
+                }
+            });
+
+            columns = iter(0, 0);
+            vm.width = 100 / columns;
+        };
+
+        vm.init();
+        angular.extend(this, vm);
     })
     .service('Hour', function() {
         var hours = [];
@@ -45,8 +104,8 @@ angular.module('planner', [])
     .service('Plan', function($q) {
         var plans = [{
             id: 0,
-            start: 0,
-            finish: 1,
+            start: 1,
+            finish: 4,
             activity: "first"
         }];
         var i;
@@ -80,7 +139,7 @@ angular.module('planner', [])
 
             removePlan: function(id) {
                 var defer = $q.defer();
-                plans.map(function(plan) {
+                plans.map(function(plan, i) {
                     if (plan.id === id) {
                         this.splice(i, 1);
                         defer.resolve();

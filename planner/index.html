@@ -32,7 +32,7 @@
           </div>
         </li>
       </ul>
-      <div class="plan-container">
+      <div class="plan-container" id="plan-container">
         <div class="plan" style="{{vm.getPlanStyle(plan)}}" ng-repeat="plan in vm.plans">
           <p class="activity">{{plan.activity}}</p>
           <span class="fa fa-trash" ng-click="vm.removePlan(plan.id)"></span>
