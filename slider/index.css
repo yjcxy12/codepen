@@ -1,0 +1,39 @@
+.container {
+  width: 30%;
+  margin: 3em auto;
+  position: relative; }
+
+.panel {
+  background-color: #ecf0f1;
+  border-radius: 2px;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: -o-grab;
+  cursor: -ms-grab;
+  cursor: grab;
+  list-style-type: none;
+  margin: 1px 0;
+  box-shadow: 0 0 1px 1px #bdc3c7;
+  padding: 50px 0;
+  position: relative;
+  text-align: center;
+  font-size: 1.5em;
+  width: 80%;
+  -webkit-user-select: none;
+  user-select: none; }
+
+.panel-red {
+  color: white;
+  background-color: #e74c3c; }
+
+.panel-blue {
+  color: white;
+  background-color: #3498db; }
+
+.panel-green {
+  color: white;
+  background-color: #40d47e; }
+
+.panel-grey {
+  color: black;
+  background-color: #ecf0f1; }
