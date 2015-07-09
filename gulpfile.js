@@ -4,7 +4,7 @@ var gulp = require('gulp');
 var watch = require('gulp-watch');
 var sass = require('gulp-sass');
 
-var dirs = ['fab-dialog', 'wave', 'planner', 'slider'];
+var dirs = ['fab-dialog', 'wave', 'planner', 'slider', 'bar-line_graph'];
 
 gulp.task('sass', function () {
 	dirs.map(function (dir) {
