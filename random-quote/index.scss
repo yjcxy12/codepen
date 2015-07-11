@@ -1,0 +1,30 @@
+@mixin user-select {
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.mdl-card {
+  overflow: visible;
+}
+.quote-title {
+  background-color: #2cc36b;
+  color: white;
+  height: 80px;
+}
+.mdl-card__actions {
+  @include user-select;
+}
+.mdl-card__menu {
+  color: white;
+}
+.quote-text {
+  border-radius: 2px;
+  text-align: center;
+}
+.quote-author {
+  color: #e67e22;
+}
+#tweet-btn {
+  padding-left: 15px;
+}
