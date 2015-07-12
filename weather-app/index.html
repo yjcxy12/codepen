@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <base href="/">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css">
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="weather-app/index.css">
+
+  </head>
+  <body>
+    <div class="main-display mdl-layout mdl-js-layout" ng-class="Weather.background()" ng-app="weather" ng-controller="WeatherCtrl as Weather">
+      <div class="title">
+        <h3>{{Weather.title}}</h3>
+      </div>
+      <div class="temperature">
+        <div class="temp-icon" style="content: url(' {{Weather.weatherIcon}}');"></div>
+        <div class="temp-number">
+          <h4>{{Weather.weatherData.temp}} {{Weather.isCelsius? '&#8451': '&#8457';}}</h4>
+        </div>
+        <div class="temp-switch">
+          <div class="temp-switch-label">&#8457</div>
+          <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="change-display">
+            <input type="checkbox" id="change-display" class="mdl-switch__input" ng-model="Weather.isCelsius" ng-change="Weather.changeTempDisplay()"/>
+            <span class="mdl-switch__label"></span>
+          </label>
+          <div class="temp-switch-label">&#8451</div>
+        </div>
+      </div>
+      <div class="details">
+        <div class="details-city">
+          <div class="details-label mdl-shadow--6dp">City</div>
+          <div class="details-value mdl-shadow-6dp">{{Weather.weatherData.city}}</div>
+        </div>
+        <div class="details-weather">
+          <div class="details-label mdl-shadow--6dp">Condition</div>
+          <div class="details-value mdl-shadow-6dp">{{Weather.weatherData.condition}}</div>
+        </div>
+        <div class="details-humidity">
+          <div class="details-label mdl-shadow--6dp">Humidity</div>
+          <div class="details-value mdl-shadow-6dp">{{Weather.weatherData.humidity}} %</div>
+        </div>
+        <div class="details-pressure">
+          <div class="details-label mdl-shadow--6dp">Pressure</div>
+          <div class="details-value mdl-shadow-6dp">{{Weather.weatherData.pressure}} hPa</div>
+        </div>
+        <div class="details-wind">
+          <div class="details-label mdl-shadow--6dp">Wind Speed</div>
+          <div class="details-value mdl-shadow-6dp">{{Weather.weatherData.wind_speed}} mps</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
+    <script src="weather-app/index.js"></script>
+
+  </body>
+</html>

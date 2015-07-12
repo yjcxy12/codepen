@@ -1,0 +1,76 @@
+.bg-thunderstorm {
+  background-image: url("http://maritimeweather.ca/wp-content/uploads/2014/05/thunderstorm2_h.jpeg"); }
+
+.bg-drizzle {
+  background-image: url("https://img0.etsystatic.com/000/0/6243307/il_fullxfull.334305888.jpg"); }
+
+.bg-rain {
+  background-image: url("http://martinjclemens.com/wp-content/uploads/2013/12/rain-wallpaper1.jpg"); }
+
+.bg-snow {
+  background-image: url("https://benhouseblog.files.wordpress.com/2014/02/2408c-snow-fall-park-1680x1050.jpg"); }
+
+.bg-atomosphere {
+  background-image: url("http://images.fineartamerica.com/images-medium-large/curved-boardwalk-on-foggy-lake-darwin-wiggett.jpg"); }
+
+.bg-clouds {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Sky_cloudy.JPG/800px-Sky_cloudy.JPG"); }
+
+.bg-sunny {
+  background-image: url("http://www.romania-insider.com/wp-content/uploads/2013/05/sunny-sxc.jpg"); }
+
+.bg-extreme {
+  background-image: url("http://s.ngm.com/2012/09/extreme-weather/img/montana-thunderstorm-615.jpg"); }
+
+.main-display {
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.title {
+  color: white;
+  text-align: center; }
+
+.temperature {
+  text-align: center;
+  color: white; }
+  .temperature .temp-icon {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    vertical-align: middle; }
+  .temperature .temp-number {
+    display: inline-block; }
+
+.temp-switch {
+  position: absolute;
+  left: 20px;
+  top: 20px; }
+  .temp-switch .temp-switch-label {
+    display: inline-block; }
+  .temp-switch .mdl-switch {
+    display: inline-block;
+    width: 40px; }
+
+.details {
+  color: #222;
+  margin: 20px auto; }
+  .details .details-label {
+    background-color: white;
+    border-radius: 3px;
+    display: inline-block;
+    margin: 5px 5px;
+    opacity: 0.65;
+    padding: 20px 50px;
+    width: 140px;
+    text-align: right;
+    font-size: 24px; }
+  .details .details-value {
+    background-color: white;
+    border-radius: 3px;
+    display: inline-block;
+    margin: 5px 5px;
+    opacity: 0.65;
+    padding: 20px 50px;
+    width: 140px;
+    text-align: left;
+    font-size: 24px; }
