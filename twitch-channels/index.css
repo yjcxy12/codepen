@@ -1,0 +1,112 @@
+body {
+  background-color: #f39c12;
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Roboto, Arial, Sans-Serif; }
+
+.main-display {
+  border: solid 1px #e67e22;
+  position: relative;
+  width: 50%;
+  height: 100%;
+  margin: auto; }
+
+.nav {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative; }
+
+.tab {
+  background-color: #e67e22;
+  border-right: solid 1px #fafafa;
+  box-sizing: border-box;
+  color: #fafafa;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  list-style: none;
+  padding: 15px 20px;
+  position: relative;
+  margin: auto;
+  width: 33.33%;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  z-index: 1; }
+  .tab:last-child {
+    border-right: none; }
+  .tab:after {
+    border: solid 15px #e67e22;
+    content: '';
+    display: none;
+    margin-top: -20px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    z-index: -1; }
+  .tab.active:after {
+    display: block; }
+
+.search-bar {
+  background-color: white;
+  border-top: solid 1px #bdc3c7;
+  border-bottom: solid 1px #bdc3c7;
+  box-sizing: border-box;
+  display: block;
+  padding: 20px 0px;
+  position: relative;
+  width: 100%; }
+
+.search-bar-whole {
+  border: solid 1px #bdc3c7;
+  border-radius: 10px;
+  margin: 0 15px; }
+
+.search-bar-icon {
+  display: inline-block;
+  padding: 5px 10px; }
+
+.search-bar-input {
+  border: none;
+  display: inline-block;
+  height: 100%;
+  width: 90%; }
+  .search-bar-input:focus {
+    border: none;
+    outline: none; }
+
+.chanels {
+  background-color: white;
+  height: 600px;
+  overflow-y: auto; }
+
+.chanels-item {
+  list-style: none; }
+
+.chanels-item-usericon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 10%; }
+
+.chanels-item-discription {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  width: 80%;
+  padding: 20px 0; }
+
+.chanels-item-discription-username {
+  display: block;
+  color: #e67e22; }
+
+.chanels-item-discription-title {
+  display: block;
+  color: #34495e;
+  font-size: 12px; }
+
+.chanels-item-status {
+  display: inline-block; }

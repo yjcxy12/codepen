@@ -9,6 +9,7 @@
   "author": "yjcxy12 <yjcxy12@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "gulp-react": "^3.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.0.1",
     "gulp-watch": "^4.2.4"
